@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flexbox Layout</title>
+    <style>
+        /* Đặt lại mặc định của trình duyệt */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Khung chứa ngoài cùng */
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Đảm bảo footer luôn nằm dưới cùng nếu nội dung ngắn */
+        }
+
+        .header, .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .nav {
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* Khung chứa Content và Sidebar */
+        .main-container {
+            display: flex;
+            flex: 1; /* Chiếm toàn bộ chiều cao còn lại giữa nav và footer */
+        }
+
+        .content {
+            flex: 3; /* Chiếm 3/4 chiều rộng */
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .sidebar {
+            flex: 1; /* Chiếm 1/4 chiều rộng */
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-left: 1px solid #ddd;
+        }
+
+        /* Responsive cho Mobile: Khi màn hình < 768px */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column; /* Đẩy sidebar xuống dưới content */
+            }
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid #ddd; /* Chuyển đường viền lên trên */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">Header</header>
+        <nav class="nav">Navigation</nav>
+        
+        <div class="main-container">
+            <main class="content">
+                <h2>Main Content</h2>
+                <p>Khu vực này sử dụng <code>flex: 3;</code> nên sẽ chiếm không gian lớn gấp 3 lần so với Sidebar trên giao diện Desktop.</p>
+                <br>
+                <p>Hãy thử kéo nhỏ cửa sổ trình duyệt xuống dưới 768px để xem Media Query hoạt động, Sidebar sẽ tự động rớt xuống dưới!</p>
+            </main>
+            <aside class="sidebar">
+                <h3>Sidebar</h3>
+                <p>flex: 1;</p>
+            </aside>
+        </div>
+
+        <footer class="footer">Footer</footer>
+    </div>
+
+</body>
+</html>
