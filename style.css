@@ -1,0 +1,75 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f5; /* Màu nền web hơi xám nhạt */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Đảm bảo layout luôn bao phủ toàn bộ chiều cao màn hình */
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa cho màn hình lớn */
+    margin: 0 auto;    /* Căn giữa trang web */
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.header, .footer {
+    background-color: #2c3e50; /* Xanh đen đậm */
+    color: #ffffff;
+    text-align: center;
+    padding: 25px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav {
+    background-color: #34495e; /* Xanh đen nhạt hơn */
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #e74c3c; /* Đường viền đỏ tạo điểm nhấn */
+}
+
+.main-container {
+    display: flex;
+    flex: 1; /* Tự động giãn để lấp đầy không gian trống giữa Nav và Footer */
+}
+
+.content {
+    flex: 3; /* Chiếm 75% chiều rộng (Tỉ lệ 3:1) */
+    padding: 30px;
+}
+
+.sidebar {
+    flex: 1; /* Chiếm 25% chiều rộng (Tỉ lệ 3:1) */
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-left: 1px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        /* Chuyển hướng xếp ngang thành xếp dọc trên màn hình nhỏ */
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        /* Đưa sidebar xuống dưới, xóa viền trái, thêm viền trên */
+        border-left: none;
+        border-top: 2px solid #e0e0e0;
+        /* Có thể đổi màu nền hoặc giữ nguyên tùy ý */
+        background-color: #f4f6f7; 
+    }
+}
